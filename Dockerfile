@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y libmcrypt-dev zlib1g-dev libicu-dev lib
     && cd /tmp \
     && git clone https://github.com/php-memcached-dev/php-memcached.git \ 
     && cd php-memcached \
-    && git checkout php7
+    && git checkout php7 \
     && phpize \
     && ./configure --disable-memcached-sasl \
     && make \
