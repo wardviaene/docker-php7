@@ -18,4 +18,11 @@ RUN apt-get update && apt-get install -y zlib1g-dev libicu-dev libpq-dev libmemc
     && phpize \
     && ./configure --disable-memcached-sasl \
     && make \
-    && make install
+    && make install \
+    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# security upgrades
+RUN apt-get update && apt-get -y upgrade # TOKEN
+
